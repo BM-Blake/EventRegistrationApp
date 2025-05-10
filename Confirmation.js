@@ -1,19 +1,28 @@
 // Confirmation.js
 import React from 'react';
-import { View, Text, StyleSheet, Button,ImageBackground,TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, ImageBackground, TouchableOpacity } from 'react-native';
 import { styles as style1 } from './RegistrationForm';
 const Confirmation = ({ details, onBack }) => {
   return (
     <ImageBackground
-    source={{ uri: 'https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} // Use URI instead of require()
-    style={style1.background}
-    blurRadius={5} 
-  >
-          <Text style={styles.title}>Event Registration Form</Text>
+      source={{ uri: 'https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }} // Use URI instead of require()
+      style={style1.background}
+      blurRadius={5}
+    >
+      <Text style={styles.title}>Event Registration Form</Text>
 
-    <View style={styles.container} testID='confirmationDetails'>
-      
-    </View>
+      <View style={styles.container} testID='confirmationDetails'>
+        <Text style={styles.title} testID="confirmText">Confirmation</Text>
+        <Text style={styles.detail}>Name: {details.name}</Text>
+        <Text style={styles.detail}>Email: {details.email}</Text>
+        <Text style={styles.detail}>Phone: {details.phone}</Text>
+        <Text style={styles.detail}>Event: {details.event}</Text>
+      </View>
+
+      <TouchableOpacity style={styles.button} onPress={onBack}>
+        <Text style={styles.buttonText}>Back</Text>
+      </TouchableOpacity>
+
     </ImageBackground>
   );
 
@@ -26,9 +35,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 16,
-    color:'#CA804D',
-    textAlign:'center',
-    fontWeight:'bold'
+    color: '#CA804D',
+    textAlign: 'center',
+    fontWeight: 'bold'
 
   },
   detail: {
